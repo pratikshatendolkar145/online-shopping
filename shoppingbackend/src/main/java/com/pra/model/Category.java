@@ -1,18 +1,26 @@
 package com.pra.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table
 public class Category 
 {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int categoryId;
-	private String categoryname;
-	private String categorydesc;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="categoryId")
+	int categoryId;
+	
+	@Column(name="categoryName")
+	String categoryName;
+	
+	@Column(name="categoryDesc")
+      String categoryDesc;
 	
 	public int getCategoryId() 
 	{
@@ -22,24 +30,26 @@ public class Category
 	{
 		this.categoryId = categoryId;
 	}
-	public String getCategoryname() 
+	public String getCategoryName() 
 	{
-		return categoryname;
+		return categoryName;
 	}
-	public void setCategoryname(String categoryname) 
+	public void setCategoryName(String categoryName) 
 	{
-		this.categoryname = categoryname;
+		this.categoryName = categoryName;
 	}
-	public String getCategorydesc() 
+	public String getCategoryDesc() 
 	{
-		return categorydesc;
+		return categoryDesc;
 	}
-	public void setCategorydesc(String categorydesc) 
+	public void setCategoryDesc(String categoryDesc) 
 	{
-		this.categorydesc = categorydesc;
+		this.categoryDesc = categoryDesc;
 	}
 	
+	public void display()
+	{
+		System.out.println("Display Method");
+	}
 	
-	
-
 }
